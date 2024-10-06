@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://r0i66npasfjw"]
+
+[ext_resource type="Texture2D" uid="uid://dfxveh133cfc0" path="res://icon.svg" id="1_pgdh4"]
+[ext_resource type="Script" path="res://BulletCode.cs" id="2_457g8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_65oje"]
+radius = 22.09
+
+[node name="BulletCode" type="Node2D"]
+script = ExtResource("2_457g8")
+Shape = SubResource("CircleShape2D_65oje")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("1_pgdh4")

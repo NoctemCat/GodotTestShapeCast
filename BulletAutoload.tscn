@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://im57bhr5mwso"]
+
+[ext_resource type="Script" path="res://BulletAutoload.cs" id="1_oruph"]
+[ext_resource type="Texture2D" uid="uid://dfxveh133cfc0" path="res://icon.svg" id="1_vnfv2"]
+
+[node name="BulletAutoload" type="Node2D"]
+script = ExtResource("1_oruph")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("1_vnfv2")

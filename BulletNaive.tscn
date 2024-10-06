@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c03gcfk11wjai"]
+
+[ext_resource type="Script" path="res://BulletNaive.cs" id="1_f3gj7"]
+[ext_resource type="Texture2D" uid="uid://dfxveh133cfc0" path="res://icon.svg" id="1_tcs4p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7l7g"]
+radius = 22.0907
+
+[node name="BulletNaive" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_f3gj7")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("1_tcs4p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n7l7g")

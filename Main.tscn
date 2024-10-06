@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://x8pjpqxdmc3e"]
+
+[ext_resource type="PackedScene" uid="uid://w6w5ffeafim7" path="res://Wall.tscn" id="1_57440"]
+[ext_resource type="PackedScene" uid="uid://ci2wkna80mu3c" path="res://Player.tscn" id="1_qdhna"]
+[ext_resource type="Script" path="res://Main.cs" id="1_srl2y"]
+[ext_resource type="PackedScene" uid="uid://c03gcfk11wjai" path="res://BulletNaive.tscn" id="2_7qdjm"]
+[ext_resource type="PackedScene" uid="uid://r0i66npasfjw" path="res://BulletCode.tscn" id="2_nw3tt"]
+[ext_resource type="PackedScene" uid="uid://im57bhr5mwso" path="res://BulletAutoload.tscn" id="4_hwvke"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("BuletHolder", "Player", "Options", "BulletsPerFire", "UiLabel")]
+script = ExtResource("1_srl2y")
+BuletSceneNaive = ExtResource("2_7qdjm")
+BuletSceneCode = ExtResource("2_nw3tt")
+BuletSceneAutoload = ExtResource("4_hwvke")
+BuletHolder = NodePath("BulletHolder")
+Player = NodePath("Player")
+Options = NodePath("CanvasLayer/UI/OptionButton")
+BulletsPerFire = NodePath("CanvasLayer/UI/LineEdit")
+UiLabel = NodePath("CanvasLayer/UI/Label")
+
+[node name="Player" parent="." instance=ExtResource("1_qdhna")]
+position = Vector2(573, 328)
+BulletsPerFrame = 20
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("1_57440")]
+position = Vector2(978, 115)
+rotation = 0.448304
+
+[node name="Wall2" parent="Walls" instance=ExtResource("1_57440")]
+position = Vector2(127, 551)
+rotation = 0.448304
+
+[node name="BulletHolder" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 163.0
+offset_bottom = 173.0
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/UI"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Naive"
+popup/item_1/text = "Code"
+popup/item_1/id = 1
+popup/item_2/text = "Autoload"
+popup/item_2/id = 2
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/UI"]
+layout_mode = 2
+text = "15"
+
+[node name="Label" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 2
+text = "Bullets"

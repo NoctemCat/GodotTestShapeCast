@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmpjrxlyelpe2"]
+
+[ext_resource type="Script" path="res://ShapeCastAutoload.cs" id="1_wu0wg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s53q7"]
+radius = 22.09
+
+[node name="ShapeCastAutoload" type="Node2D" node_paths=PackedStringArray("ShapeCast")]
+script = ExtResource("1_wu0wg")
+ShapeCast = NodePath("ShapeCast2D")
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+shape = SubResource("CircleShape2D_s53q7")
+target_position = Vector2(0, 0)
+max_results = 1
